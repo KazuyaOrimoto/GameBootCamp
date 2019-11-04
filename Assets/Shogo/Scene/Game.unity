@@ -166,7 +166,9 @@ MonoBehaviour:
   obj:
   - {fileID: 8042461624906033386, guid: 142d9346014f49a4489c67c8ffdbedd4, type: 3}
   - {fileID: 3633625491912403198, guid: 648e5c18cf6465240b862b9bd8bbd5a2, type: 3}
-  csvFile: {fileID: 4900000, guid: b88dbe0ead137d04c8a51c11d1715a53, type: 3}
+  csvDatas: {fileID: 4900000, guid: b88dbe0ead137d04c8a51c11d1715a53, type: 3}
+  size: {x: 4, y: 4, z: 4}
+  interval: 80
 --- !u!1 &741965378
 GameObject:
   m_ObjectHideFlags: 0
