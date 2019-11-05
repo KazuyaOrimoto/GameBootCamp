@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7842028428185841417}
   - component: {fileID: 97839724}
   - component: {fileID: 97839725}
+  - component: {fileID: 2118562100}
   m_Layer: 0
   m_Name: CreateObjects
   m_TagString: Untagged
@@ -77,7 +78,7 @@ MonoBehaviour:
   randomRange: {x: 4, y: 5.5}
   size: {x: 1, y: 1, z: 1}
   initPosition: {x: 0, y: 0, z: 0}
-  appearanceRate: 1
+  range: 1
 --- !u!114 &97839725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,3 +97,17 @@ MonoBehaviour:
   randomRange: {x: 0, y: 0}
   size: {x: 1, y: 1, z: 1}
   initPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &2118562100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842028428185841419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aa35b7a87403d4095b8ff8c5022bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObject: {fileID: 4132895718803825702, guid: 6ffd1a51424d9c94f824ae66efef51bf,
+    type: 3}

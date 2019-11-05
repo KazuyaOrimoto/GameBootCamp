@@ -15,9 +15,11 @@ public class TogeTogeMove : MonoBehaviour
 
     int time;
 
-    const float t = 5.0f;
+    const float t = 4.0f;
     const float f = 1.0f / t;
-    const float speed = 5;
+
+    [SerializeField,Tooltip("スピードと向き")]
+    float speed;
     float sin;
 
     const int SPEED = -5;
@@ -54,10 +56,5 @@ public class TogeTogeMove : MonoBehaviour
         // 回転
         gameObject.transform.Rotate(new Vector3(0, 90, 0) * Time.deltaTime);
 
-        // 時間後削除
-        if (time > deleteTime)
-        {
-            Destroy(this.gameObject);
-        }
     }
 }

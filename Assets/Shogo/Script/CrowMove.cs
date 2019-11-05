@@ -2,7 +2,7 @@
 // Script  : CrowMove
 // Name    : カラス移動
 // Creater : 大山 尚悟 (おおやま しょうご)
-// Day     : 11 / 04
+// Day     : 11 / 05
 //-------------------------------------
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +18,15 @@ public class CrowMove : MonoBehaviour
 
     int time;
     const int deleteTime = 300;
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +54,7 @@ public class CrowMove : MonoBehaviour
         direction = new Vector3(1 * SPEED, 0, 0);
 
         // 時間後削除
-        if (time > deleteTime)
+        if (transform.position.x < -20)
         {
             Destroy(this.gameObject);
         }

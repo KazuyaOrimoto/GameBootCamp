@@ -21,12 +21,12 @@ public class FadeIn : MonoBehaviour
         {
             if (fadeImage != null)
             {
-                StartCoroutine(Fadeout());
+                StartCoroutine(Fadein());
             }
         }
     }
 
-    IEnumerator Fadeout()
+    IEnumerator Fadein()
     {
         while (fadeImage.Range > 0)
         {

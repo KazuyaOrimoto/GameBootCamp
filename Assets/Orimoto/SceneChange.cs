@@ -27,4 +27,10 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void ChangeSceneSlide(string sceneName)
+    {
+        Capture cap = GameObject.Find("Capture").GetComponent<Capture>();
+        StartCoroutine(cap.SlideSceneChange(sceneName));
+    }
 }

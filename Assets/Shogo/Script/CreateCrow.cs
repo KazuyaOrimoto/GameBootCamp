@@ -28,10 +28,13 @@ public class CreateCrow : MonoBehaviour
     [SerializeField, Tooltip("初期位置")]
     Vector3 initPosition;
 
+    [SerializeField, Tooltip("カラス出現率")]
+    int range;
+
     int time;
     bool isCreate;
 
-    const int createTime = 180;
+    int createTime;
 
     // カラス作成
     void CreatingCrow()
@@ -42,7 +45,20 @@ public class CreateCrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        switch(range)
+        {
+            case 1:
+                createTime = 600;
+                break;
+            case 2:
+                createTime = 360;
+                break;
+            case 3:
+                createTime = 180;
+                break;
+        }
         gameObject.transform.localScale = size;
+
         // 各初期化
         isCreate = false;
         time = 0;
