@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3633625491912403197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object_B
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3633625491912403198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3633625492938154241}
   - {fileID: 3633625492829041926}
@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 3633625492829041947}
   - component: {fileID: 3633625492829041924}
   - component: {fileID: 3633625492829041925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Up_Stick
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,9 +136,9 @@ GameObject:
   - component: {fileID: 3633625492938154246}
   - component: {fileID: 3633625492938154247}
   - component: {fileID: 3633625492938154240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Down_Stick
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

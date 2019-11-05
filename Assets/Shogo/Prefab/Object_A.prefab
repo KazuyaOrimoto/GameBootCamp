@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4072304741086391089}
   - component: {fileID: 5383136531546440401}
   - component: {fileID: 2430614234138144673}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Up_Stick
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5114090880421799513}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: 0}
-  m_LocalScale: {x: 0.29999998, y: 5, z: 2}
+  m_LocalPosition: {x: 0, y: 11, z: 0}
+  m_LocalScale: {x: 0.29999998, y: 10, z: 2}
   m_Children: []
   m_Father: {fileID: 2687174250630524902}
   m_RootOrder: 1
@@ -104,9 +104,9 @@ GameObject:
   - component: {fileID: 8313180174872383987}
   - component: {fileID: 7185045460733495680}
   - component: {fileID: 5735578054203819219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Down_Stick
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,8 +119,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7637769512700661834}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
-  m_LocalScale: {x: 0.29999998, y: 5, z: 2}
+  m_LocalPosition: {x: 0, y: -9, z: 0}
+  m_LocalScale: {x: 0.29999998, y: 11, z: 2}
   m_Children: []
   m_Father: {fileID: 2687174250630524902}
   m_RootOrder: 0
@@ -193,9 +193,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2687174250630524902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object_A
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 8042461624906033386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5474313212910910426}
   - {fileID: 7882514433770974910}
@@ -229,9 +229,9 @@ GameObject:
   - component: {fileID: 4241749117342677168}
   - component: {fileID: 8557462553559573195}
   - component: {fileID: 3812369198325887811}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Midle_Stick
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

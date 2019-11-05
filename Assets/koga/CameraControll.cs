@@ -6,6 +6,7 @@ public class CameraControll : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
+    private Move move;
     public Transform verRot;
     public Transform horRot;
     //カメラとプレイヤーとの差分
@@ -28,6 +29,11 @@ public class CameraControll : MonoBehaviour
             return;
         }
 
-        transform.position = player.transform.position + offset;
+        move = player.GetComponent<Move>();
+
+        if (!move.GetDieFlag())
+        {
+            transform.position = player.transform.position + offset;
+        }
     }
 }
