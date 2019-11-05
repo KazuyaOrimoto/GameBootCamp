@@ -501,6 +501,10 @@ PrefabInstance:
       propertyPath: cutoutRange
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11486218, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: f4d282a7baf3e484cbfac2a5e47819e6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
 --- !u!1001 &2014431695
@@ -694,6 +698,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: UniverseStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991892, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991892, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991892, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991892, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_FillOrigin
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047d010c3b22d8c4f984c788f85ceef5, type: 3}
