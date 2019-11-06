@@ -47,13 +47,19 @@ public class ButtonManager : MonoBehaviour
 
     void SkyButton()
     {
-        if(Input.GetAxis("Horizontal2") < -inputNum)
+        if(Input.GetKeyDown("joystick button 0"))
+        {
+            skyButton.SetTrigger("play");
+            rageButton.SetTrigger("notPlay");
+            uniButton.SetTrigger("notPlay");
+        }
+        if(Input.GetAxis("Horizontal2") <= -inputNum)
         {
             skyButton.SetBool("select",false);
             uniButton.SetBool("select",true);
             inputed = true;
         }
-        else if(Input.GetAxis("Horizontal2") > inputNum)
+        else if(Input.GetAxis("Horizontal2") >= inputNum)
         {
             skyButton.SetBool("select", false);
             rageButton.SetBool("select", true);
@@ -63,6 +69,12 @@ public class ButtonManager : MonoBehaviour
 
     void RageButton()
     {
+        if (Input.GetKeyDown("joystick button 0"))
+        {
+            rageButton.SetTrigger("play");
+            skyButton.SetTrigger("notPlay");
+            uniButton.SetTrigger("notPlay");
+        }
         if (Input.GetAxis("Horizontal2") < -inputNum)
         {
             rageButton.SetBool("select", false);
@@ -81,6 +93,12 @@ public class ButtonManager : MonoBehaviour
 
     void UniButton()
     {
+        if (Input.GetKeyDown("joystick button 0"))
+        {
+            uniButton.SetTrigger("play");
+            skyButton.SetTrigger("notPlay");
+            rageButton.SetTrigger("notPlay");
+        }
         if (Input.GetAxis("Horizontal2") < -inputNum)
         {
             uniButton.SetBool("select", false);

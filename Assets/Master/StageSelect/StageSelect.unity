@@ -270,6 +270,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fb2a9eba151703408e9511bf547f3b9, type: 3}
+--- !u!1 &565881280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 141186, guid: 53c22e1773be7f84aad8ed8b7b58fa6e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1826332354}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &565881286
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565881280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c2279914812df9a43aec3a001ab7711f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &613762942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 271587505877276295, guid: 9a7061ad217380f438bda2eba8861e84,
@@ -990,6 +1015,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1551952658352311835, guid: 39268bc936c0e4442a43c4fe4d91d035,
+        type: 3}
+      propertyPath: skyButton
+      value: 
+      objectReference: {fileID: 827213525}
+    - target: {fileID: 1551952658352311835, guid: 39268bc936c0e4442a43c4fe4d91d035,
+        type: 3}
+      propertyPath: rageButton
+      value: 
+      objectReference: {fileID: 1293588188}
+    - target: {fileID: 1551952658352311835, guid: 39268bc936c0e4442a43c4fe4d91d035,
+        type: 3}
+      propertyPath: uniButton
+      value: 
+      objectReference: {fileID: 1080677205}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39268bc936c0e4442a43c4fe4d91d035, type: 3}
 --- !u!1 &1293588183
