@@ -1,5 +1,5 @@
 ﻿//-------------------------------------
-// Script  : CreateCrow
+// Script  : CreateObstacle
 // Name    : カラスの作成
 // Creater : 大山 尚悟 (おおやま しょうご)
 // Day     : 11 / 04
@@ -9,16 +9,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class CreateCrow : MonoBehaviour
+public class CreateObstacle : MonoBehaviour
 {
     [SerializeField, Tooltip("プレイヤー")]
     GameObject player;
 
     [SerializeField, Tooltip("プレイヤーから離して出す")]
-    float initCrowPosition;
+    float initObsPosition;
 
     [SerializeField,Tooltip("カラス")]
-    GameObject crowObs;
+    GameObject obs;
 
     [SerializeField,Tooltip("カラスの有効範囲")]
     Vector2 randomRange;
@@ -39,7 +39,7 @@ public class CreateCrow : MonoBehaviour
     // カラス作成
     void CreatingCrow()
     {
-        Instantiate(crowObs, new Vector3(player.transform.position.x + initCrowPosition, Random.Range(-randomRange.x, randomRange.y), -2.0f) + initPosition, Quaternion.identity);
+        Instantiate(obs, new Vector3(player.transform.position.x + initObsPosition, Random.Range(-randomRange.x, randomRange.y), -2.0f) + initPosition, Quaternion.identity);
     }
 
     // Start is called before the first frame update

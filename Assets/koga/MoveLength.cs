@@ -7,8 +7,11 @@ public class MoveLength : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject movetext;
+    [SerializeField] private GameObject chaser;
+    [SerializeField] private GameObject chaseDistancetext;
     [SerializeField] private Vector3 keeppos;
     [SerializeField] private Vector3 movepos;
+    [SerializeField] private float chasevec;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +22,25 @@ public class MoveLength : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //移動距離
         movepos = player.transform.position - keeppos;
+        //追う者との距離
+        chasevec = player.transform.position.x - (player.GetComponent<Renderer>().bounds.size.x / 2)
+            - (chaser.transform.position.x + (chaser.GetComponent<Renderer>().bounds.size.x / 2));
+
         DrawMovePos();
+        DrawChaserLength();
     }
 
     private void DrawMovePos()
     {
         Text move = movetext.GetComponent<Text>();
         move.text = "移動距離" + movepos.x;
+    }
+    
+    private void DrawChaserLength()
+    {
+        Text distancetext = chaseDistancetext.GetComponent<Text>();
+        distancetext.text = "追う者との距離" + chasevec;
     }
 }

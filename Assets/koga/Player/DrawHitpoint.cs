@@ -7,14 +7,14 @@ public class DrawHitpoint : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject hptext;
-    [SerializeField] private int keephp;
-    [SerializeField] private Hitpoint hp;
+    private int keephp = 0;
+    private Hitpoint hp;
 
     // Start is called before the first frame update
     void Start()
     {
         hp = player.GetComponent<Hitpoint>();
-        keephp = hp.GetHP();
+        keephp = 0;
     }
 
     // Update is called once per frame
@@ -27,6 +27,6 @@ public class DrawHitpoint : MonoBehaviour
     private void DrawHitPoint()
     {
         Text hp = hptext.GetComponent<Text>();
-        hp.text = "残りHP" + keephp;
+        hp.text = "死んだ回数" + keephp;
     }
 }

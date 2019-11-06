@@ -10,15 +10,13 @@ using UnityEngine;
 
 public class CrowMove : MonoBehaviour
 {
-
     Rigidbody rid;
     Vector3 direction;
 
     const int SPEED = -5;
 
-    int time;
-    const int deleteTime = 300;
-
+    GameObject player;
+    const int PLAYER_BACK_DELETE = 40;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -33,7 +31,7 @@ public class CrowMove : MonoBehaviour
     {
         // 各初期化
         rid = GetComponent<Rigidbody>();
-        time = 0;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void FixedUpdate()
@@ -48,13 +46,11 @@ public class CrowMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time++;
-
         // 移動
         direction = new Vector3(1 * SPEED, 0, 0);
 
         // 時間後削除
-        if (transform.position.x < -20)
+        if (transform.position.x < player.transform.position.x - PLAYER_BACK_DELETE)
         {
             Destroy(this.gameObject);
         }

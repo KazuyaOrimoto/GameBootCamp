@@ -8,6 +8,7 @@ public class Move : MonoBehaviour
     [SerializeField] private float rotaspeed;
     //移動速度
     [SerializeField] private float speed;
+    private float itemspeed = 0;
     //重力
     [SerializeField] private float gravity;
     //入力フラグ
@@ -18,29 +19,38 @@ public class Move : MonoBehaviour
     //スティックの入力感度
     [SerializeField] private float sticRange = 0.7f;
     //回転限界
-    [SerializeField] private float rotalimit = 2.0f;
-    [SerializeField] private float bound;
-    [SerializeField] private float defaultbound = 25.0f;
+    private float rotalimit = 2.0f;
+    private float rotanum = 5.0f;
+    private float gravityrate = 0.98f;
+    private float boundrate = 0.85f;
+    private Vector2 bound;
 
     //死亡時用の変数
     //死亡フラグ
-    [SerializeField] private bool dieflag = false;
+    [SerializeField] bool dieflag = false;
     //回転速度
-    [SerializeField] private float diespin = 5.0f;
-    [SerializeField] private Vector3 keeppos;
-    [SerializeField] private float wait = 0.0f;
+    private float diespin = 5.0f;
+    private Vector3 keeppos;
+    private float wait = 0.0f;
 
+    //無敵状態
+    [SerializeField] private bool invincible = false;
+    private float invincibletime = 300;
 
+    //リジッドボディ
     private Rigidbody rb;
 
-    private enum State
+    //シーン
+    SceneChange scene;
+
+    //ステートパターン
+    public enum State
     {
-        Normal,
+        normal,
         die,
     }
 
     State state;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +60,9 @@ public class Move : MonoBehaviour
         speed = 4;
         gravity = 3;
         dieflag = false;
-        bound = 0;
+        bound = new Vector3();
+        state = State.normal;
+        scene = new SceneChange();
     }
 
     // Update is called once per frame
@@ -60,8 +72,10 @@ public class Move : MonoBehaviour
         float rotaVertical = Input.GetAxis("Vertical2");
         float viasHorizontal = Input.GetAxis("Horizontal");
 
-        if (!dieflag)
+        //ノーマルのステート
+        if(state == State.normal)
         {
+            //スティック判定
             if (rotaHorizontal >= sticRange)
             {
                 rotaright = true;
@@ -81,37 +95,58 @@ public class Move : MonoBehaviour
 
             RotaCheck();
 
-            transform.Rotate(new Vector3(0, rotaspeed * rotalimit, 0));
+            //回転
+            transform.Rotate(new Vector3(0, rotaspeed * rotanum, 0));
 
+            //移動
             if (rotaspeed <= rotalimit)
             {
-                rb.velocity = new Vector3(speed + viasHorizontal - bound, rotaspeed - gravity * rotalimit, 0);
+                rb.velocity = new Vector3(speed + viasHorizontal + itemspeed, rotaspeed - gravity * rotalimit, 0) + new Vector3(bound.x, 0, 0);
             }
             else
             {
-                rb.velocity = new Vector3(speed + viasHorizontal - bound, rotaspeed - gravity, 0);
+                rb.velocity = new Vector3(speed + viasHorizontal + itemspeed, rotaspeed - gravity, 0) + new Vector3(bound.x, 0, 0);
             }
-            rotaspeed *= 0.995f;
+
+            //回転数の自然現象
+            rotaspeed *= gravityrate;
+
+            //反動がなくなったら
+            if (bound.x <= 1.0f && bound.x >= -1.0f && bound.y <= 1.0f && bound.y >= -1.0f)
+            {
+                speed = 4;
+                bound = new Vector3();
+            }
         }
-        else
+        
+        //死亡時のステート
+        if(state == State.die)
         {
-            transform.Rotate(new Vector3(0, diespin, 0));
-            rb.velocity = new Vector3(0, -gravity * rotalimit, 0);
+            //死亡演出
+            speed = 0;
             
             wait++;
-            if(wait >= 30)
+            if(wait >= 60)
             {
-                Respown();
+                //scene.ChangeScene("ResultScene");
             }
         }
-        bound *= 0.85f;
-        if(bound <= 1.0f)
-        {
-            speed = 4;
-            bound = 0;
-        }
-    }
 
+        if (invincible)
+        {
+            invincibletime--;
+            if(invincibletime >= 0)
+            {
+                invincibletime = 300;
+                invincible = false;
+            }
+        }
+
+        //反発数の減少
+        bound *= boundrate;
+        //加速度の減少
+        itemspeed *= boundrate;
+    }
 
     //フラグすべて立っていたら回転速度を上げる
     private void RotaCheck() { 
@@ -125,29 +160,44 @@ public class Move : MonoBehaviour
         }
     }
 
-    private void Respown()
+    public void CollisionChaser()
     {
-        Vector3 resPos = new Vector3(transform.position.x - 10, transform.position.y, transform.position.z);
-        transform.position = resPos;
-        rotaspeed = 2;
-        gravity = 3;
-        dieflag = false;
-        if(wait >= 60)
+        state = State.die;
+        dieflag = true;
+    }
+
+    public void CollisionObstract(Vector2 push)
+    {
+        if (invincible)
         {
-            speed = 4;
-            wait = 0;
+
+        }
+        else
+        {
+            speed = 0;
+            bound = push;
         }
     }
 
-    public void CollisionObstract()
-    {
-        dieflag = true;
-        keeppos = transform.position;
-    }
-    public void CollisionWall()
+    public void CollisionWall(Vector2 push)
     {
         speed = 0;
-        bound = defaultbound;
+        bound = push;
+    }
+    
+    public void CollisionItemS()
+    {
+        itemspeed = 20;
+    }
+    
+    public void CollisionItemL()
+    {
+        invincible = true;
+    }
+
+    public void CollisionFloar()
+    {
+        speed = 0;
     }
 
     public bool GetDieFlag()

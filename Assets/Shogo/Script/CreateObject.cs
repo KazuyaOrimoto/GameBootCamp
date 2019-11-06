@@ -45,8 +45,8 @@ public class CreateObject : MonoBehaviour
     int line; 
     int column;
 
-    const float togeY = 8.0f;
-    const float togeTogeY = 4.0f;
+    const float togeY = 6.0f;
+    const float togeTogeY = 2.0f;
 
     enum TYPE_OBJECT
     {
@@ -58,6 +58,8 @@ public class CreateObject : MonoBehaviour
         OBJECT_E,
         OBJECT_F,
         OBJECT_TOGE_MOVE,
+        GOAL,
+        TAKE,
     }
 
     // Start is called before the first frame update
@@ -141,7 +143,6 @@ public class CreateObject : MonoBehaviour
         {
             for (int i = 0; i < retu; i++)
             {
-                // 各壁の配置
                 if (map[line, column] == 1)
                 {
                     Instantiate(obj[(int)TYPE_OBJECT.OBJECT_A], new Vector3(intPositionX, Random.Range(-3, 3), 0.0f), Quaternion.identity);
@@ -179,6 +180,17 @@ public class CreateObject : MonoBehaviour
                 if (map[line, column] == 8)
                 {
                     Instantiate(obj[(int)TYPE_OBJECT.OBJECT_TOGE_MOVE], new Vector3(intPositionX, togeTogeY, 0.0f), Quaternion.identity);
+                }
+
+                if (map[line, column] == 9)
+                {
+                    Instantiate(obj[(int)TYPE_OBJECT.GOAL], new Vector3(intPositionX, 0, 0.0f), Quaternion.identity);
+                }
+
+                // 各壁の配置
+                if (map[line, column] == 10)
+                {
+                    Instantiate(obj[(int)TYPE_OBJECT.TAKE], new Vector3(intPositionX, Random.Range(-5, 5), 0.0f), new Quaternion(0, 180, 0, 0));
                 }
 
                 // 次の右のマップ番号を読み込む

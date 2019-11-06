@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿//-------------------------------------
+// Script  : RotateBackGround
+// Name    : 背景の回転
+// Creater : 大山 尚悟 (おおやま しょうご)
+// Day     : 11 / 05
+//-------------------------------------
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -24,6 +24,8 @@ public class CameraControll : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        float viasHorizontal = Input.GetAxis("Horizontal");
+
         if (Mathf.Approximately(Time.timeScale, 0f))
         {
             return;
@@ -31,9 +33,6 @@ public class CameraControll : MonoBehaviour
 
         move = player.GetComponent<Move>();
 
-        if (!move.GetDieFlag())
-        {
-            transform.position = player.transform.position + offset;
-        }
+        transform.position = player.transform.position + offset;
     }
 }

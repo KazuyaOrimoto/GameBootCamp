@@ -7,6 +7,9 @@ TagManager:
   - SceneManager
   - Obstacle
   - Wall
+  - Chaser
+  - Goal
+  - item_s
   layers:
   - Default
   - TransparentFX

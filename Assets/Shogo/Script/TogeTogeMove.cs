@@ -23,7 +23,6 @@ public class TogeTogeMove : MonoBehaviour
     float sin;
 
     const int SPEED = -5;
-    const int deleteTime = 900;
 
     // Start is called before the first frame update
     void Start()

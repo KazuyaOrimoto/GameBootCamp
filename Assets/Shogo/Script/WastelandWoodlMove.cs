@@ -1,6 +1,6 @@
 ﻿//-------------------------------------
-// Script  : WastelandBarrelMove
-// Name    : 樽の移動
+// Script  : WastelandWoodlMove
+// Name    : 木移動
 // Creater : 大山 尚悟 (おおやま しょうご)
 // Day     : 11 / 05
 //-------------------------------------
@@ -8,18 +8,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WastelandBarrelMove : MonoBehaviour
+public class WastelandWoodlMove : MonoBehaviour
 {
-    [SerializeField, Tooltip("プレイヤー")]
-    GameObject player;
+    Vector3 targetPos;
 
     Rigidbody rid;
     Vector3 direction;
 
-    const int SPEED = -5;
+    const int SPEED = -6;
+    const int CIRCLESPEED = 8;
 
-    int time;
     const int deleteTime = 300;
+    float sin;
+    float cos;
+
+    GameObject player;
+    const int PLAYER_BACK_DELETE = 40;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -32,16 +36,15 @@ public class WastelandBarrelMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sin = 0;
+        cos = 0;
         // 各初期化
         rid = GetComponent<Rigidbody>();
-        time = 0;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void FixedUpdate()
     {
-        // 左向き
-        gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
-
         // 移動
         rid.velocity = direction;
     }
@@ -50,13 +53,17 @@ public class WastelandBarrelMove : MonoBehaviour
     void Update()
     {
         // サインカーブ
-        float sin = Mathf.Sin(2 * Mathf.PI * 1 * Time.time);
+        sin = Mathf.Sin(Time.time * 2) * CIRCLESPEED;
+        cos = Mathf.Cos(Time.time * 2) * CIRCLESPEED;
 
         // 移動
-        direction = new Vector3(1 * SPEED, sin * 10, 0);
+        direction = new Vector3(SPEED + sin, cos, 0);
+
+        // 回転
+        gameObject.transform.Rotate(new Vector3(0, 0, 360) * Time.deltaTime);
 
         // 時間後削除
-        if (transform.position.x < -20)
+        if (transform.position.x < player.transform.position.x - PLAYER_BACK_DELETE)
         {
             Destroy(this.gameObject);
         }

@@ -14,7 +14,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &5866274332812028747
 BoxCollider:
@@ -41,7 +41,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467b54ff7cbf5104693f371ef325df57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1001 &5060814484109697664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,6 +142,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: f1bb0e75f345c784e938f180cef9deeb,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 75fd1c3768bad2c498b9236a0a107b03, type: 2}
+    - target: {fileID: -6057140222963153312, guid: f1bb0e75f345c784e938f180cef9deeb,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5775550052059115417, guid: f1bb0e75f345c784e938f180cef9deeb,
         type: 3}
