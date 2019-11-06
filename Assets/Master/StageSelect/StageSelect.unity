@@ -693,50 +693,35 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4286429401162991895, guid: 047d010c3b22d8c4f984c788f85ceef5,
+    - target: {fileID: 4286429401162991894, guid: 047d010c3b22d8c4f984c788f85ceef5,
         type: 3}
-      propertyPath: m_Name
-      value: Sky
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
+    - target: {fileID: 4286429400723759517, guid: 047d010c3b22d8c4f984c788f85ceef5,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
+    - target: {fileID: 4286429400967371354, guid: 047d010c3b22d8c4f984c788f85ceef5,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 80026554}
-    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeSceneSlide
-      objectReference: {fileID: 0}
-    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: SkyStage
-      objectReference: {fileID: 0}
-    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4286429400723759518, guid: 047d010c3b22d8c4f984c788f85ceef5,
         type: 3}
       propertyPath: m_Name
       value: RoughWeater
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429400967371355, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_Name
+      value: Universe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991895, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_Name
+      value: Sky
       objectReference: {fileID: 0}
     - target: {fileID: 4286429400723759507, guid: 047d010c3b22d8c4f984c788f85ceef5,
         type: 3}
@@ -757,11 +742,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: RoughWeatherStage
-      objectReference: {fileID: 0}
-    - target: {fileID: 4286429400967371355, guid: 047d010c3b22d8c4f984c788f85ceef5,
-        type: 3}
-      propertyPath: m_Name
-      value: Universe
       objectReference: {fileID: 0}
     - target: {fileID: 4286429400967371352, guid: 047d010c3b22d8c4f984c788f85ceef5,
         type: 3}
@@ -802,6 +782,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FillOrigin
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 80026554}
+    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSceneSlide
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: SkyStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286429401162991893, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758546201236868042, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656365680815495940, guid: 047d010c3b22d8c4f984c788f85ceef5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047d010c3b22d8c4f984c788f85ceef5, type: 3}
