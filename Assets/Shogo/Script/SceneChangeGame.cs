@@ -1,6 +1,6 @@
 ﻿//-------------------------------------
 // Script  : SceneChangeGame
-// Name    : ゲーム内のシーン切り替え
+// Name    : ゲーム内クリア時のシーン切り替え
 // Creater : 大山 尚悟 (おおやま しょうご)
 // Day     : 11 / 06
 //-------------------------------------
@@ -11,9 +11,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangeGame : MonoBehaviour
 {
+    [SerializeField,Tooltip("シーンクリア")]
     SceneChange sceneChange;
-    [SerializeField,Tooltip("シーンゲームオーバー")]
-    SceneChange sceneChangeGameOver;
+
+    [SerializeField, Tooltip("シーン名")]
+    string sceneChangeName;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +29,7 @@ public class SceneChangeGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sceneChange = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneChange>();
+
     }
 
     // Update is called once per frame
@@ -35,8 +38,7 @@ public class SceneChangeGame : MonoBehaviour
         if(EndGame.GetEndGame())
         {
             //sceneChange.ChangeScene();
-            sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN);
+            sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN, sceneChangeName);
         }
-
     }
 }

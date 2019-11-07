@@ -13,8 +13,6 @@ public class PlayerEventScene : MonoBehaviour
     Vector3 position;
     [SerializeField, Tooltip("ムーブ")]
     Move move;
-    [SerializeField, Tooltip("カメラのオンオフ")]
-    Camera camera;
     GameObject target;
     Vector3 targetPos;
 
@@ -29,7 +27,6 @@ public class PlayerEventScene : MonoBehaviour
         move.enabled = false;
         position = new Vector3(-15, 0, 0);
         targetPos = new Vector3(0, 0, 0);
-        camera.enabled = true;
         startEventTime = 0;
         endEventTime = 0;
     }
@@ -48,7 +45,6 @@ public class PlayerEventScene : MonoBehaviour
         if (startEventTime > 260)
         {
             move.enabled = true;
-            camera.enabled = false;
         }
         else
         {

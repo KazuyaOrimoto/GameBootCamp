@@ -19,7 +19,7 @@ public class SceneShangeGameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sceneChange = GameObject.FindGameObjectWithTag("SceneGameOver").GetComponent<SceneChange>();
+
     }
 
     // Update is called once per frame
@@ -28,8 +28,8 @@ public class SceneShangeGameOver : MonoBehaviour
         // プレイヤーが死んだとき
         if (player.GetDieFlag())
         {
-            //sceneChange.ChangeScene();
-            sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN);
+            //sceneChange.ChangeSceneFade();
+            sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN, "ResultLose");
         }
     }
 }

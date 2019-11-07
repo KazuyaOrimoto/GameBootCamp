@@ -11,7 +11,7 @@ using UnityEngine;
 public class FryWall : MonoBehaviour
 {
     GameObject obj;
-    Collider coll;
+    Collider collider;
     Rigidbody rid;
     Vector3 direction;
     float dis;
@@ -30,7 +30,7 @@ public class FryWall : MonoBehaviour
     void Start()
     {
         obj = GameObject.FindGameObjectWithTag("Chaser");
-        coll = GetComponent<Collider>();
+        collider = gameObject.GetComponentInChildren<BoxCollider>();
         rid = GetComponent<Rigidbody>();
         size = 1;
     }
@@ -39,12 +39,7 @@ public class FryWall : MonoBehaviour
     void Update()
     {
         // サインカーブ
-        float sin = Mathf.Sin(1.0f * Mathf.PI * 20.0f * Time.time);
-        float cos = Mathf.Cos(1.0f * Mathf.PI * 1.0f * Time.time);
-
         dis = Vector3.Distance(obj.transform.position, transform.position);
-
-        Debug.Log(dis);
 
         if(dis < 4)
         {
@@ -56,15 +51,20 @@ public class FryWall : MonoBehaviour
             // 回転
             transform.Rotate(new Vector3(0, 1800, 0) * Time.deltaTime);
             // 移動
-            direction = new Vector3(1 * SPEED, sin, 0);
+            direction = new Vector3(1 * SPEED, 0, 0);
 
-            coll.enabled = false;
-
-            size -= 0.1f;
+            size -= 0.01f;
             transform.localScale = new Vector3(size, size, size);
             if (transform.localScale.x < 0) { transform.localScale = new Vector3(0.0f, transform.localScale.y, transform.localScale.z); }
             if (transform.localScale.y < 0) { transform.localScale = new Vector3(transform.localScale.x, 0.0f, transform.localScale.z); }
             if (transform.localScale.z < 0) { transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 0.0f); }
-        }
-    }
+
+            if (transform.localScale.x <= 0 &&
+               transform.localScale.y <= 0 &&
+               transform.localScale.z <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }   
+    }       
 }

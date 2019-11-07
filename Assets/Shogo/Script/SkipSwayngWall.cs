@@ -14,6 +14,7 @@ public class SkipSwayngWall : MonoBehaviour
     Rigidbody rid;
     Vector3 direction;
 
+    Vector3 nowPosition;
     bool isRota;
 
     private void OnTriggerEnter(Collider other)
@@ -27,6 +28,7 @@ public class SkipSwayngWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nowPosition = transform.position;
         rid = GetComponent<Rigidbody>();
         coll = GetComponent<Collider>();
         isRota = false;
@@ -47,13 +49,12 @@ public class SkipSwayngWall : MonoBehaviour
 
         if (isRota)
         {
-            rid.constraints = RigidbodyConstraints.None;
-            rid.constraints = RigidbodyConstraints.FreezeRotation;
-            rid.constraints = RigidbodyConstraints.FreezePositionX;
-            rid.constraints = RigidbodyConstraints.FreezePositionZ;
-
             // 移動
             direction = new Vector3(0, sin * 4 , 0);
+        }
+        else
+        {
+            transform.position = nowPosition;
         }
     }
 }
