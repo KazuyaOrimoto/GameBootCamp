@@ -414,11 +414,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeIn_Down
       objectReference: {fileID: 0}
-    - target: {fileID: 2850820867696814927, guid: f909f1d6a6e469449872a2c4ed985c32,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2850820867674530021, guid: f909f1d6a6e469449872a2c4ed985c32,
         type: 3}
       propertyPath: m_LocalPosition.x

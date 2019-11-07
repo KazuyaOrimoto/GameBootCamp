@@ -43,4 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23711d416562bdd4ca46dfb72537a6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageSelectSceneName: 
+  stageSelectSceneName: StageSelect
+  fade:
+  - {fileID: 2850820867696814927, guid: f909f1d6a6e469449872a2c4ed985c32, type: 3}
+  - {fileID: 6872136794550844189, guid: c7cf3513af717bd4ba8b825fde572dc6, type: 3}
+  - {fileID: 8580333703737522985, guid: dcf6d7faa4e2c5f409ae5555e4aeffdd, type: 3}
+  - {fileID: 2842893737489939796, guid: 09e0dd123e1956848b52828f513a1c86, type: 3}
