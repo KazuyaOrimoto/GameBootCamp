@@ -74,8 +74,8 @@ public class Move : MonoBehaviour
         bound = new Vector3();
         state = State.normal;
         scene = new SceneChange();
-        Sound.LoadBGM("BGM", "進め！テントウムシ");
-        Sound.PlayBGM("BGM");
+
+        Sound.LoadSE("Hit", "kick-low1");
     }
 
     // Update is called once per frame
@@ -214,6 +214,7 @@ public class Move : MonoBehaviour
             _effectpos.HiteffectPos(effect);
             _effect.HitEffect();
             itemspeed = 0;
+            Sound.PlaySE("Hit");
         }
     }
 
@@ -223,6 +224,7 @@ public class Move : MonoBehaviour
         bound = push;
         _effectpos.HiteffectPos(effect);
         _effect.HitEffect();
+        Sound.PlaySE("Hit");
         itemspeed = 0;
     }
 
