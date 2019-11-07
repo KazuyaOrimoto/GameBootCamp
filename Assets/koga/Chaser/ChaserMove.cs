@@ -16,7 +16,7 @@ public class ChaserMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        transform.position = player.transform.position - new Vector3(10, 0, 0);
+        transform.position = player.transform.position - new Vector3(15, 0, 0);
         speed = 1;
     }
 
