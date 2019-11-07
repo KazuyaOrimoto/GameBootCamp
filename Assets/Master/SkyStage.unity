@@ -1422,6 +1422,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DragonFly
       objectReference: {fileID: 0}
+    - target: {fileID: 1723595916350621915, guid: 3177b2352a62d064dbb5f517a4fd833e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1723595917581705176, guid: 3177b2352a62d064dbb5f517a4fd833e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1497,11 +1502,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -12
       objectReference: {fileID: 0}
-    - target: {fileID: 1723595916350621915, guid: 3177b2352a62d064dbb5f517a4fd833e,
+    - target: {fileID: 7436683505253080689, guid: 3177b2352a62d064dbb5f517a4fd833e,
         type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 993103371}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3177b2352a62d064dbb5f517a4fd833e, type: 3}
 --- !u!1001 &3681063050695057617

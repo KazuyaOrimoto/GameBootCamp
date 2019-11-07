@@ -45,6 +45,8 @@ public class Move : MonoBehaviour
     [SerializeField] private GameObject hitEffect;
     [SerializeField] private GameObject hitEffectpos;
     [SerializeField] private GameObject rotaEffect;
+    [SerializeField] private GameObject powerEffect;
+    [SerializeField] private GameObject invincibleeffect;
     private effect _effect;
     private effectpos _effectpos;
 
@@ -160,8 +162,12 @@ public class Move : MonoBehaviour
         if (invincible)
         {
             invincibletime--;
+            powerEffect.SetActive(true);
+            invincibleeffect.SetActive(true);
             if (invincibletime <= 0)
             {
+                powerEffect.SetActive(false);
+                invincibleeffect.SetActive(false);
                 invincibletime = 300;
                 invincible = false;
             }
