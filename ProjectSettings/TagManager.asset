@@ -10,6 +10,7 @@ TagManager:
   - Chaser
   - Goal
   - item_s
+  - Fade
   layers:
   - Default
   - TransparentFX

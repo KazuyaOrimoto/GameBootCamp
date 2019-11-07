@@ -7,13 +7,14 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] Animator skyButton;
     [SerializeField] Animator rageButton;
     [SerializeField] Animator uniButton;
+    [SerializeField] SceneChange sceneChange;
 
     bool inputed = false;
     float inputNum = 0.7f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        sceneChange = GameObject.Find("SceneManager").GetComponent<SceneChange>();
     }
 
     // Update is called once per frame
@@ -50,6 +51,7 @@ public class ButtonManager : MonoBehaviour
         if(Input.GetKeyDown("joystick button 0"))
         {
             skyButton.SetTrigger("play");
+            sceneChange.ChangeScene("SkyStage");
             rageButton.SetTrigger("notPlay");
             uniButton.SetTrigger("notPlay");
         }
@@ -72,6 +74,7 @@ public class ButtonManager : MonoBehaviour
         if (Input.GetKeyDown("joystick button 0"))
         {
             rageButton.SetTrigger("play");
+            sceneChange.ChangeScene("RoughWeatherStage");
             skyButton.SetTrigger("notPlay");
             uniButton.SetTrigger("notPlay");
         }
@@ -96,6 +99,7 @@ public class ButtonManager : MonoBehaviour
         if (Input.GetKeyDown("joystick button 0"))
         {
             uniButton.SetTrigger("play");
+            sceneChange.ChangeScene("UniverseStage");
             skyButton.SetTrigger("notPlay");
             rageButton.SetTrigger("notPlay");
         }

@@ -33,6 +33,8 @@ public class CameraControll : MonoBehaviour
 
         move = player.GetComponent<Move>();
 
-        transform.position = player.transform.position + offset;
+        Vector3 camerapos = new Vector3(player.transform.position.x + offset.x, transform.position.y, player.transform.position.z + offset.z);
+        
+        transform.position = camerapos;
     }
 }

@@ -24,11 +24,30 @@ public class ChaserMove : MonoBehaviour
     void Update()
     {
         move = player.GetComponent<Move>();
+
         if (move.GetDieFlag())
         {
             speed = 0;
         }
+
+        var offset = player.transform.position - transform.position;
+        if (!move.GetDieFlag())
+        {
+            if (offset.x >= 15)
+            {
+                speed = 5;
+            }
+            if (offset.x <= 14 && offset.x >= 10)
+            {
+                speed = 3;
+            }
+            if (offset.x <= 9)
+            {
+                speed = 1;
+            }
+        }
         rb.velocity = new Vector3(speed, 0, 0);
+
         //回転
         transform.Rotate(new Vector3(0, 10, 0));
     }

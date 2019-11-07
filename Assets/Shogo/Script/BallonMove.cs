@@ -19,11 +19,14 @@ public class BallonMove : MonoBehaviour
     GameObject player;
     const int PLAYER_BACK_DELETE = 40;
 
+    bool isHit;
+    Collider collider;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(this.gameObject);
+            isHit = true;
         }
     }
 
@@ -43,6 +46,9 @@ public class BallonMove : MonoBehaviour
         // 各初期化
         rid = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        collider = GetComponent<Collider>();
+        isHit = false;
     }
 
     private void FixedUpdate()
@@ -54,17 +60,37 @@ public class BallonMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // サインカーブ
-        float sin = Mathf.Sin(2 * Mathf.PI * 0.5f * Time.time);
-
-        // 移動
-        if (isPlusMinus)
+        // 当たった後の処理 
+        if (isHit)
         {
-            direction = new Vector3(1 * SPEED, sin * 2, 0);
+            // 回転
+            gameObject.transform.Rotate(new Vector3(0, 0, 360) * Time.deltaTime);
+            // 当たり判定をなしにする
+            collider.enabled = false;
+            // 移動
+            direction = new Vector3(0, 1 * SPEED * 6, 0);
+
+            // 一定数下に行くと削除
+            if (transform.position.y < -PLAYER_BACK_DELETE)
+            {
+                Destroy(this.gameObject);
+            }
         }
+        // 当たっていないときのの処理 
         else
         {
-            direction = new Vector3(1 * SPEED, -sin * 2, 0);
+            // サインカーブ
+            float sin = Mathf.Sin(2 * Mathf.PI * 0.5f * Time.time);
+
+            // 移動
+            if (isPlusMinus)
+            {
+                direction = new Vector3(1 * SPEED, sin * 2, 0);
+            }
+            else
+            {
+                direction = new Vector3(1 * SPEED, -sin * 2, 0);
+            }
         }
 
         // プレイヤーの後削除

@@ -24,9 +24,9 @@ public class MoveLength : MonoBehaviour
     {
         //移動距離
         movepos = player.transform.position - keeppos;
+
         //追う者との距離
-        chasevec = player.transform.position.x - (player.GetComponent<Renderer>().bounds.size.x / 2)
-            - (chaser.transform.position.x + (chaser.GetComponent<Renderer>().bounds.size.x / 2));
+        chasevec = player.transform.position.x - chaser.transform.position.x;
 
         DrawMovePos();
         DrawChaserLength();

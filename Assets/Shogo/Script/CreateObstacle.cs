@@ -17,10 +17,10 @@ public class CreateObstacle : MonoBehaviour
     [SerializeField, Tooltip("プレイヤーから離して出す")]
     float initObsPosition;
 
-    [SerializeField,Tooltip("カラス")]
+    [SerializeField,Tooltip("オブジェクト")]
     GameObject obs;
 
-    [SerializeField,Tooltip("カラスの有効範囲")]
+    [SerializeField,Tooltip("オブジェクトの有効範囲")]
     Vector2 randomRange;
 
     [SerializeField, Tooltip("サイズ")]
@@ -28,7 +28,7 @@ public class CreateObstacle : MonoBehaviour
     [SerializeField, Tooltip("初期位置")]
     Vector3 initPosition;
 
-    [SerializeField, Tooltip("カラス出現率")]
+    [SerializeField, Tooltip("出現率")]
     int range;
 
     int time;
@@ -62,9 +62,6 @@ public class CreateObstacle : MonoBehaviour
         // 各初期化
         isCreate = false;
         time = 0;
-
-        // カラスの作成
-        CreatingCrow();
     }
 
     // Update is called once per frame
@@ -79,7 +76,7 @@ public class CreateObstacle : MonoBehaviour
             isCreate = true;
         }
 
-        if(isCreate)
+        if(isCreate && StartGame.GetStartGame() && !EndGame.GetEndTimeGame())
         {
             CreatingCrow();
             isCreate = false;

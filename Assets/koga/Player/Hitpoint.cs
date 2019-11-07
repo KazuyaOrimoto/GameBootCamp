@@ -10,6 +10,7 @@ public class Hitpoint : MonoBehaviour
     float boundWall = 25.0f;
     float boundObs = 40.0f;
     Vector2 pushvec;
+    Vector2 effectvec;
     private Move move;
 
     // Start is called before the first frame update
@@ -21,10 +22,6 @@ public class Hitpoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(hitpoint == 0)
-        {
-            //SceneManager.LoadScene("ResultScene");
-        }
     }
 
     private void OnCollisionEnter(Collision col)
@@ -37,7 +34,8 @@ public class Hitpoint : MonoBehaviour
                 Vector2 playerpos = new Vector2(player.transform.position.x, player.transform.position.y);
                 Vector2 ray = colpos - playerpos;
                 pushvec = -ray.normalized * boundObs;
-                move.CollisionObstract(pushvec);
+                effectvec = ray.normalized * 0.3f;
+                move.CollisionObstract(pushvec, effectvec);
             }
             if (col.gameObject.tag == "Chaser")
             {
@@ -50,7 +48,8 @@ public class Hitpoint : MonoBehaviour
                 Vector2 playerpos = new Vector2(player.transform.position.x, player.transform.position.y);
                 Vector2 ray = colpos - playerpos;
                 pushvec = -ray.normalized * boundWall;
-                move.CollisionWall(pushvec);
+                effectvec = ray.normalized * 0.3f;
+                move.CollisionWall(pushvec, effectvec);
             }
         }
     }
@@ -74,13 +73,13 @@ public class Hitpoint : MonoBehaviour
             {
                 move.CollisionChaser();
             }
-            if (col.gameObject.tag == "item_s")
+            if (col.gameObject.tag == "ring")
             {
-                move.CollisionItemS();
+                move.CollisionRing();
             }
-            if (col.gameObject.tag == "item_l")
+            if (col.gameObject.tag == "bamboo")
             {
-                move.CollisionItemL();
+                move.CollisionBigBamb();
             }
         }
     }

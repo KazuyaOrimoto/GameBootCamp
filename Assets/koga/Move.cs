@@ -28,8 +28,6 @@ public class Move : MonoBehaviour
     //死亡時用の変数
     //死亡フラグ
     [SerializeField] bool dieflag = false;
-    //回転速度
-    private float diespin = 5.0f;
     private Vector3 keeppos;
     private float wait = 0.0f;
 
@@ -42,6 +40,15 @@ public class Move : MonoBehaviour
 
     //シーン
     SceneChange scene;
+
+    //エフェクト
+    [SerializeField] private GameObject hitEffect;
+    [SerializeField] private GameObject hitEffectpos;
+    [SerializeField] private GameObject rotaEffect;
+    private effect _effect;
+    private effectpos _effectpos;
+
+    [SerializeField] GameObject ringparticle;
 
     //ステートパターン
     public enum State
@@ -56,6 +63,8 @@ public class Move : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _effect = hitEffect.GetComponent<effect>();
+        _effectpos = hitEffectpos.GetComponent<effectpos>();
         rotaspeed = 0;
         speed = 4;
         gravity = 3;
@@ -80,14 +89,17 @@ public class Move : MonoBehaviour
             {
                 rotaright = true;
             }
+
             if (rotaHorizontal <= -sticRange)
             {
                 rotaleft = true;
             }
+
             if (rotaVertical >= sticRange)
             {
                 rotadown = true;
             }
+
             if (rotaVertical <= -sticRange)
             {
                 rotaup = true;
@@ -97,6 +109,15 @@ public class Move : MonoBehaviour
 
             //回転
             transform.Rotate(new Vector3(0, rotaspeed * rotanum, 0));
+
+            if(rotaspeed > 5)
+            {
+                rotaEffect.SetActive(true);
+            }
+            else
+            {
+                rotaEffect.SetActive(false);
+            }
 
             //移動
             if (rotaspeed <= rotalimit)
@@ -145,7 +166,7 @@ public class Move : MonoBehaviour
         //反発数の減少
         bound *= boundrate;
         //加速度の減少
-        itemspeed *= boundrate;
+        itemspeed *= gravityrate;
     }
 
     //フラグすべて立っていたら回転速度を上げる
@@ -166,7 +187,7 @@ public class Move : MonoBehaviour
         dieflag = true;
     }
 
-    public void CollisionObstract(Vector2 push)
+    public void CollisionObstract(Vector2 push, Vector2 effect)
     {
         if (invincible)
         {
@@ -176,21 +197,26 @@ public class Move : MonoBehaviour
         {
             speed = 0;
             bound = push;
+            _effectpos.HiteffectPos(effect);
+            _effect.HitEffect();
         }
     }
 
-    public void CollisionWall(Vector2 push)
+    public void CollisionWall(Vector2 push, Vector2 effect)
     {
         speed = 0;
         bound = push;
+        _effectpos.HiteffectPos(effect);
+        _effect.HitEffect();
     }
     
-    public void CollisionItemS()
+    public void CollisionRing()
     {
         itemspeed = 20;
+        Instantiate(ringparticle, transform.position, transform.rotation);
     }
     
-    public void CollisionItemL()
+    public void CollisionBigBamb()
     {
         invincible = true;
     }
