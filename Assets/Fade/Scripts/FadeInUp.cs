@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class FadeInUp : MonoBehaviour
 {
@@ -18,7 +20,6 @@ public class FadeInUp : MonoBehaviour
     {
         if (fade.Range >= 1)
         {
-            Destroy(gameObject);
         }
         else
         {

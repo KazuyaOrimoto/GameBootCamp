@@ -19,6 +19,8 @@ public class SceneChange : MonoBehaviour
 
     [SerializeField] List<GameObject> fade = new List<GameObject>();
 
+    FadeImage fadeImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,33 +33,79 @@ public class SceneChange : MonoBehaviour
 
     }
 
-    public void ChangeScene()
-    {
-        SceneManager.LoadScene(stageSelectSceneName);
-    }
+    //public void ChangeScene()
+    //{
+    //    SceneManager.LoadScene(stageSelectSceneName);
+    //}
 
     
 
-    public void ChangeScene(string sceneName)
+    //public void ChangeScene(string _sceneName)
+    //{
+    //}
+
+    public void ChangeSceneFade(FadeName f,string _screenName)
     {
-        SceneManager.LoadScene(sceneName);
+        if(fadeImage != null)
+        {
+            return;
+        }
+        stageSelectSceneName = _screenName;
+        switch (f)
+        {
+            case FadeName.FADE_IN_DOWN:
+                fadeImage = Instantiate(fade[0]).GetComponent<FadeImage>();
+                StartCoroutine("DoFade");
+                break;
+            case FadeName.FADE_IN_UP:
+                fadeImage = Instantiate(fade[1]).GetComponent<FadeImage>();
+                StartCoroutine("DoFade");
+                break;
+            case FadeName.FADE_OUT_DOWN:
+                fadeImage = Instantiate(fade[2]).GetComponent<FadeImage>();
+                StartCoroutine("DoFade");
+                break;
+            case FadeName.FADE_OUT_UP:
+                fadeImage = Instantiate(fade[3]).GetComponent<FadeImage>();
+                StartCoroutine("DoFade");
+                break;
+        }
     }
+
 
     public void ChangeSceneFade(FadeName f)
     {
-        switch(f)
+        if (fadeImage != null)
         {
-            case FadeName.FADE_IN_DOWN: ChangeScene();
+            return;
+        }
+        switch (f)
+        {
+            case FadeName.FADE_IN_DOWN:
+                fadeImage = Instantiate(fade[0]).GetComponent<FadeImage>();
+                StartCoroutine("DoFade");
                 break;
             case FadeName.FADE_IN_UP:
-                ChangeScene();
+                fadeImage = Instantiate(fade[1]).GetComponent<FadeImage>();
+                StartCoroutine("DoFade");
                 break;
             case FadeName.FADE_OUT_DOWN:
-                ChangeScene();
+                fadeImage = Instantiate(fade[2]).GetComponent<FadeImage>();
+                StartCoroutine("DoFade");
                 break;
             case FadeName.FADE_OUT_UP:
-                ChangeScene();
+                fadeImage = Instantiate(fade[3]).GetComponent<FadeImage>();
+                StartCoroutine("DoFade");
                 break;
         }
+    }
+
+    IEnumerator DoFade()
+    {
+        while (fadeImage.Range <= 1.0f && fadeImage.Range >= 0.0f)
+        {
+            yield return null;
+        }
+        SceneManager.LoadScene(stageSelectSceneName);
     }
 }

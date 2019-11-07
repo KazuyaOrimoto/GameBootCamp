@@ -18,8 +18,11 @@ public class CheckAnyKey : MonoBehaviour
         {
             if(sceneChange != null)
             {
-                sceneChange.ChangeScene();
+                //sceneChange.ChangeScene();
+                sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN);
             }
         }
     }
+
+
 }

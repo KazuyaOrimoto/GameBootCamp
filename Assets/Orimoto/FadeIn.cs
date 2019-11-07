@@ -10,7 +10,7 @@ public class FadeIn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fadeImage = GameObject.Find("FadeCanvas").GetComponent<FadeImage>();
+        fadeImage = GameObject.FindGameObjectWithTag("Fade").GetComponent<FadeImage>();
         fadeImage.Range = 1.0f;
     }
 

@@ -34,7 +34,8 @@ public class SceneChangeGame : MonoBehaviour
     {
         if(EndGame.GetEndGame())
         {
-            sceneChange.ChangeScene();
+            //sceneChange.ChangeScene();
+            sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN);
         }
 
     }

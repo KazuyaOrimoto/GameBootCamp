@@ -25,7 +25,7 @@ public class ScenarioScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(beforeInput)
+        if (beforeInput)
         {
             if (!Input.anyKey)
             {
@@ -38,10 +38,10 @@ public class ScenarioScript : MonoBehaviour
             {
                 beforeInput = true;
                 spriteNum++;
-                if(spriteNum >= list.Count)
+                if (spriteNum >= list.Count)
                 {
                     //ゲーム開始
-                    sceneChange.ChangeScene();
+                    sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN);
                 }
                 else
                 {

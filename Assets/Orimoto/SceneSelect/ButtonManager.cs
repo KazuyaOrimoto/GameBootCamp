@@ -51,7 +51,7 @@ public class ButtonManager : MonoBehaviour
         if(Input.GetKeyDown("joystick button 0"))
         {
             skyButton.SetTrigger("play");
-            sceneChange.ChangeScene("ScenarioScene");
+            sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN, "ScenarioScene");
             rageButton.SetTrigger("notPlay");
             uniButton.SetTrigger("notPlay");
         }
@@ -74,7 +74,7 @@ public class ButtonManager : MonoBehaviour
         if (Input.GetKeyDown("joystick button 0"))
         {
             rageButton.SetTrigger("play");
-            sceneChange.ChangeScene("RoughWeatherStage");
+            sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN, "RoughWeatherStage");
             skyButton.SetTrigger("notPlay");
             uniButton.SetTrigger("notPlay");
         }
@@ -99,7 +99,7 @@ public class ButtonManager : MonoBehaviour
         if (Input.GetKeyDown("joystick button 0"))
         {
             uniButton.SetTrigger("play");
-            sceneChange.ChangeScene("UniverseStage");
+            sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN, "UniverseStage");
             skyButton.SetTrigger("notPlay");
             rageButton.SetTrigger("notPlay");
         }
