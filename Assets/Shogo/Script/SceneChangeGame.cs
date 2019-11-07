@@ -14,7 +14,6 @@ public class SceneChangeGame : MonoBehaviour
     SceneChange sceneChange;
     [SerializeField,Tooltip("シーンゲームオーバー")]
     SceneChange sceneChangeGameOver;
-    Move player;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,7 +27,6 @@ public class SceneChangeGame : MonoBehaviour
     void Start()
     {
         sceneChange = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneChange>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Move>();
     }
 
     // Update is called once per frame
@@ -39,10 +37,5 @@ public class SceneChangeGame : MonoBehaviour
             sceneChange.ChangeScene();
         }
 
-        // プレイヤーが死んだとき
-        if(player.GetDieFlag())
-        {
-            sceneChangeGameOver.ChangeScene();
-        }
     }
 }

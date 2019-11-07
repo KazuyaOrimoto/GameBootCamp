@@ -17,10 +17,10 @@ public class Move : MonoBehaviour
     [SerializeField] private bool rotaup = false;
     [SerializeField] private bool rotadown = false;
     //スティックの入力感度
-    [SerializeField] private float sticRange = 0.7f;
+    [SerializeField] private float sticRange = 0.2f;
     //回転限界
     private float rotalimit = 2.0f;
-    private float rotanum = 5.0f;
+    private float rotanum = 7.0f;
     private float gravityrate = 0.98f;
     private float boundrate = 0.85f;
     private Vector2 bound;
@@ -73,6 +73,8 @@ public class Move : MonoBehaviour
         bound = new Vector3();
         state = State.normal;
         scene = new SceneChange();
+        Sound.LoadBGM("BGM", "進め！テントウムシ");
+        Sound.PlayBGM("BGM");
     }
 
     // Update is called once per frame
@@ -146,7 +148,9 @@ public class Move : MonoBehaviour
         {
             //死亡演出
             speed = 0;
-            
+            rb.velocity = new Vector3(0, 0, 0);
+            transform.Rotate(new Vector3(0, 0, 0));
+
             wait++;
             if(wait >= 60)
             {
@@ -184,6 +188,10 @@ public class Move : MonoBehaviour
         }
     }
 
+    //////////////////////////////////////////////////////////////////////
+    /////当たり判定
+    //////////////////////////////////////////////////////////////////////
+    
     public void CollisionChaser()
     {
         state = State.die;
@@ -202,6 +210,7 @@ public class Move : MonoBehaviour
             bound = push;
             _effectpos.HiteffectPos(effect);
             _effect.HitEffect();
+            itemspeed = 0;
         }
     }
 
@@ -211,8 +220,9 @@ public class Move : MonoBehaviour
         bound = push;
         _effectpos.HiteffectPos(effect);
         _effect.HitEffect();
+        itemspeed = 0;
     }
-    
+
     public void CollisionRing()
     {
         itemspeed = 20;
@@ -229,6 +239,8 @@ public class Move : MonoBehaviour
         speed = 0;
     }
 
+    ///////////////////////////////////////////////////////////////////////
+   
     public bool GetDieFlag()
     {
         return dieflag;

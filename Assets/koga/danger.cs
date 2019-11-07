@@ -9,7 +9,8 @@ public class danger : MonoBehaviour
     private Image _image;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject chaser;
-    private float dangerzoon = 9;
+    private float dangerzoon = 12;
+    private float supperdangerzoon = 8;
     private float effecttime = 180;
     private float wait = 0;
     [SerializeField] private bool dangerflag = false;
@@ -36,11 +37,22 @@ public class danger : MonoBehaviour
             wait++;
 
             this._image.color = Color.Lerp(this._image.color, Color.clear, Time.deltaTime / 2);
-          
-            if(effecttime <= wait)
+
+            if(player.transform.position.x - chaser.transform.position.x <= supperdangerzoon)
             {
-                dangerflag = false;
-                wait = 0;
+                if (effecttime / 3 <= wait)
+                {
+                    dangerflag = false;
+                    wait = 0;
+                }
+            }
+            else if((player.transform.position.x - chaser.transform.position.x > supperdangerzoon) && (player.transform.position.x - chaser.transform.position.x <= dangerzoon))
+            {
+                if (effecttime <= wait)
+                {
+                    dangerflag = false;
+                    wait = 0;
+                }
             }
         }
     }

@@ -23,16 +23,16 @@ public class CreateBigBmboo : MonoBehaviour
         switch (nowScene)
         {
             case 0:
-                Instantiate(bigBmboo, new Vector3(200, 0, 0), Quaternion.identity);
+                Instantiate(bigBmboo, new Vector3(200, 0, 0), new Quaternion(0, 180, 0, 0));
                 break;
             case 1:
-                Instantiate(bigBmboo, new Vector3(250, 0, 0), Quaternion.identity);
-                Instantiate(bigBmboo, new Vector3(500, 0, 0), Quaternion.identity);
+                Instantiate(bigBmboo, new Vector3(250, 0, 0), new Quaternion(0, 180, 0, 0));
+                Instantiate(bigBmboo, new Vector3(500, 0, 0), new Quaternion(0, 180, 0, 0));
                 break;
             case 2:
-                Instantiate(bigBmboo, new Vector3(250, 0, 0), Quaternion.identity);
-                Instantiate(bigBmboo, new Vector3(450, 0, 0), Quaternion.identity);
-                Instantiate(bigBmboo, new Vector3(600, 0, 0), Quaternion.identity);
+                Instantiate(bigBmboo, new Vector3(250, 0, 0), new Quaternion(0, 180, 0, 0));
+                Instantiate(bigBmboo, new Vector3(450, 0, 0), new Quaternion(0, 180, 0, 0));
+                Instantiate(bigBmboo, new Vector3(600, 0, 0), new Quaternion(0, 180, 0, 0));
                 break;
         }
     }
