@@ -13,7 +13,8 @@ public class SpaceShipEventScene : MonoBehaviour
     Rigidbody rid;
     Vector3 direction;
 
-    GameObject goal;
+    [SerializeField, Tooltip("ゴール一のUFO")]
+    int goal;
 
     const int MIN_SPEED = 20;
     const int MAX_SPEED = 100;
@@ -29,7 +30,6 @@ public class SpaceShipEventScene : MonoBehaviour
     {
         // 各初期化
         rid = GetComponent<Rigidbody>();
-        goal = GameObject.FindGameObjectWithTag("Goal");
 
         startEventTime = 0;
         endEventTime = 0;
@@ -77,7 +77,7 @@ public class SpaceShipEventScene : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = new Vector3(goal.transform.position.x + MIN_SPEED, 0, 0);
+                    transform.position = new Vector3(goal + MIN_SPEED, 0, 0);
                 }
             }
             else
@@ -93,7 +93,7 @@ public class SpaceShipEventScene : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = new Vector3(goal.transform.position.x + MIN_SPEED, 0, 0);
+                    transform.position = new Vector3(goal + MIN_SPEED, 0, 0);
                 }
             }
         }

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Master/UniverseStage.unity
     guid: 4dabd65769f077042a1bce28f7a7673e
+  - enabled: 1
+    path: Assets/Master/ScenarioScene.unity
+    guid: 50850efb98904264d991d88b0c1eb624
   m_configObjects: {}

@@ -12,7 +12,7 @@ public class danger : MonoBehaviour
     private float dangerzoon = 9;
     private float effecttime = 180;
     private float wait = 0;
-    private bool dangerflag = false;
+    [SerializeField] private bool dangerflag = false;
 
     // Start is called before the first frame update
     void Start()

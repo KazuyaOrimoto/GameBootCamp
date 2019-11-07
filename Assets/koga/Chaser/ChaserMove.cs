@@ -43,7 +43,7 @@ public class ChaserMove : MonoBehaviour
             }
             if (offset.x <= 9)
             {
-                speed = 1;
+                speed = 2;
             }
         }
         rb.velocity = new Vector3(speed, 0, 0);

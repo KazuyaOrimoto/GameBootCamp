@@ -49,6 +49,7 @@ public class Move : MonoBehaviour
     private effectpos _effectpos;
 
     [SerializeField] GameObject ringparticle;
+    [SerializeField] GameObject invincibleparticle;
 
     //ステートパターン
     public enum State
@@ -155,9 +156,11 @@ public class Move : MonoBehaviour
 
         if (invincible)
         {
-            invincibletime--;
-            if(invincibletime >= 0)
+            invincibletime--; 
+            Instantiate(invincibleparticle, transform.position, transform.rotation);
+            if (invincibletime >= 0)
             {
+                Destroy(invincibleparticle);
                 invincibletime = 300;
                 invincible = false;
             }

@@ -51,7 +51,7 @@ public class ButtonManager : MonoBehaviour
         if(Input.GetKeyDown("joystick button 0"))
         {
             skyButton.SetTrigger("play");
-            sceneChange.ChangeScene("SkyStage");
+            sceneChange.ChangeScene("ScenarioScene");
             rageButton.SetTrigger("notPlay");
             uniButton.SetTrigger("notPlay");
         }
