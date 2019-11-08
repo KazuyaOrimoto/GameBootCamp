@@ -717,6 +717,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u30BF\u30A4\u30C8\u30EB"
       objectReference: {fileID: 0}
+    - target: {fileID: -6412309360730463319, guid: 33abf37516276fc40bae7dfb3106e456,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 33abf37516276fc40bae7dfb3106e456,
         type: 3}
       propertyPath: m_Controller
