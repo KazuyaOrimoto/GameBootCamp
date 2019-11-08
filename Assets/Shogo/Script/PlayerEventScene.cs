@@ -13,6 +13,10 @@ public class PlayerEventScene : MonoBehaviour
     Vector3 position;
     [SerializeField, Tooltip("ムーブ")]
     Move move;
+    [SerializeField, Tooltip("台風")]
+    GameObject Tiphon;
+
+    PlayerMove playerMove;
     GameObject target;
     Vector3 targetPos;
 
@@ -23,18 +27,17 @@ public class PlayerEventScene : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Goal");
+        playerMove = GetComponent<PlayerMove>();
 
         move.enabled = false;
         position = new Vector3(-15, 0, 0);
         targetPos = new Vector3(0, 0, 0);
+
+
         startEventTime = 0;
         endEventTime = 0;
     }
 
-    private void FixedUpdate()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -42,51 +45,43 @@ public class PlayerEventScene : MonoBehaviour
         // 始まり時のプレイヤーのイベント 無理やり
         startEventTime++;
 
-        if (startEventTime > 260)
+        if (startEventTime > 170)
         {
             move.enabled = true;
+            playerMove.enabled = false;
         }
         else
         {
+            playerMove.PlayerMoving();
             // 回転
             gameObject.transform.Rotate(new Vector3(0, 1800, 0) * Time.deltaTime);
         }
 
-        if (startEventTime < 220)
-        {
-            position.x += 0.04f;
-            transform.position = position;
-            if(position.x > 0)
-            {
-                position = new Vector3(0, 0, 0);
-            }
-        }
+
 
         // 終わり時のプレイヤーのイベント
 
         if(EndGame.GetEndTimeGame())
         {
+            Tiphon.SetActive(false);
             endEventTime++;
             move.enabled = false;
-
+            playerMove.enabled = true;
 
             if (endEventTime < 180)
             {
-                position = transform.position;
+                playerMove.PlayerMoveNormal();
                 transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 4 * Time.deltaTime);
             }
-            if (endEventTime == 180)
-            {
-                targetPos = transform.position;
-            }
+
             if (endEventTime > 180)
             {
-                transform.position = targetPos;
+                playerMove.PlayerStop();
             }
-            if (endEventTime > 300)
+
+            if (endEventTime > 210)
             {
-                position.x ++;
-                transform.position = position;
+                playerMove.PlayerFarst();
             }
         }
     }

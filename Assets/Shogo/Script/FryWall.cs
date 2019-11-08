@@ -30,7 +30,7 @@ public class FryWall : MonoBehaviour
     void Start()
     {
         obj = GameObject.FindGameObjectWithTag("Chaser");
-        collider = gameObject.GetComponentInChildren<BoxCollider>();
+        collider = GetComponentInChildren<BoxCollider>();
         rid = GetComponent<Rigidbody>();
         size = 1;
     }
@@ -52,6 +52,8 @@ public class FryWall : MonoBehaviour
             transform.Rotate(new Vector3(0, 1800, 0) * Time.deltaTime);
             // 移動
             direction = new Vector3(1 * SPEED, 0, 0);
+
+            collider.enabled = false;
 
             size -= 0.01f;
             transform.localScale = new Vector3(size, size, size);

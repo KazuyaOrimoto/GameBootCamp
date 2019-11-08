@@ -28,6 +28,9 @@ public class CreateObject : MonoBehaviour
     [SerializeField, Tooltip("初期位置Y")]
     int intPositionY;
 
+    [SerializeField, Tooltip("ランダム値")]
+    int[] rand = new int[2];
+
     //CSVの全文字列を保存する
     string str = "";
     //取り出した文字列を保存する
@@ -145,17 +148,17 @@ public class CreateObject : MonoBehaviour
             {
                 if (map[line, column] == 1)
                 {
-                    Instantiate(obj[(int)TYPE_OBJECT.OBJECT_A], new Vector3(intPositionX, Random.Range(-3, 3), 0.0f), Quaternion.identity);
+                    Instantiate(obj[(int)TYPE_OBJECT.OBJECT_A], new Vector3(intPositionX, Random.Range(rand[0], rand[1]), 0.0f), Quaternion.identity);
                 }
 
                 if (map[line, column] == 2) 
                 {
-                    Instantiate(obj[(int)TYPE_OBJECT.OBJECT_B], new Vector3(intPositionX, Random.Range(-3, 3), 0.0f), Quaternion.identity);
+                    Instantiate(obj[(int)TYPE_OBJECT.OBJECT_B], new Vector3(intPositionX, Random.Range(rand[0], rand[1]), 0.0f), Quaternion.identity);
                 }
 
                 if (map[line, column] == 3)
                 {
-                    Instantiate(obj[(int)TYPE_OBJECT.OBJECT_C], new Vector3(intPositionX, Random.Range(-3, 3), 0.0f), Quaternion.identity);
+                    Instantiate(obj[(int)TYPE_OBJECT.OBJECT_C], new Vector3(intPositionX, Random.Range(rand[0], rand[1]), 0.0f), Quaternion.identity);
                 }
 
                 if (map[line, column] == 4)

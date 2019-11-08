@@ -16,7 +16,7 @@ public class SpaceShipEventScene : MonoBehaviour
     [SerializeField, Tooltip("ゴール一のUFO")]
     int goal;
 
-    const int MIN_SPEED = 20;
+    const int MIN_SPEED = 40;
     const int MAX_SPEED = 100;
 
     int startEventTime;
@@ -33,6 +33,9 @@ public class SpaceShipEventScene : MonoBehaviour
 
         startEventTime = 0;
         endEventTime = 0;
+
+        //
+        transform.position = new Vector3(-20, 0, -5);
     }
 
     private void FixedUpdate()
@@ -48,15 +51,23 @@ public class SpaceShipEventScene : MonoBehaviour
 
         if (startEventTime < 60)
         {
-            // 移動
-            direction = new Vector3(1 * MIN_SPEED, 0, 0);
+            if (transform.position.x >= 8)
+            {
+                // 移動
+                direction = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                // 移動
+                direction = new Vector3(1 * MIN_SPEED, 0, 0);
+            }
         }
-        if (startEventTime >= 60 && startEventTime < 240)
+        if (startEventTime >= 60 && startEventTime < 120)
         {
             // 移動
             direction = new Vector3(0, 0, 0);
         }
-        if (startEventTime > 240)
+        if (startEventTime > 120)
         {
             // 移動
             direction = new Vector3(1 * MAX_SPEED, 0, 0);
@@ -70,7 +81,8 @@ public class SpaceShipEventScene : MonoBehaviour
                 {
                     endEventTime++;
                 }
-                if (endEventTime > 240)
+
+                if (endEventTime > 180)
                 {
                     // 移動
                     direction = new Vector3(1 * MAX_SPEED, 0, 0);
@@ -87,14 +99,13 @@ public class SpaceShipEventScene : MonoBehaviour
                     endEventTime++;
                 }
 
-                if (endEventTime > 240)
+                if (endEventTime > 120)
                 {
                     Destroy(this);
                 }
-                else
-                {
-                    transform.position = new Vector3(goal + MIN_SPEED, 0, 0);
-                }
+
+                transform.position = new Vector3(goal, 0, 0);
+
             }
         }
     }
