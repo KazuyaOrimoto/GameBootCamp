@@ -15,6 +15,10 @@ public class ButtonManager : MonoBehaviour
     void Start()
     {
         sceneChange = GameObject.Find("SceneManager").GetComponent<SceneChange>();
+        Sound.LoadBGM("select", "select");
+        Sound.LoadSE("click", "click");
+        Sound.LoadSE("idou", "cursoridou");
+        Sound.PlayBGM("select");
     }
 
     // Update is called once per frame
@@ -54,18 +58,22 @@ public class ButtonManager : MonoBehaviour
             sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN, "ScenarioScene");
             rageButton.SetTrigger("notPlay");
             uniButton.SetTrigger("notPlay");
+            Sound.PlaySE("click");
+            Sound.StopBGM();
         }
         if(Input.GetAxis("Horizontal2") <= -inputNum)
         {
             skyButton.SetBool("select",false);
             uniButton.SetBool("select",true);
             inputed = true;
+            Sound.PlaySE("idou");
         }
         else if(Input.GetAxis("Horizontal2") >= inputNum)
         {
             skyButton.SetBool("select", false);
             rageButton.SetBool("select", true);
             inputed = true;
+            Sound.PlaySE("idou");
         }
     }
 
@@ -77,12 +85,15 @@ public class ButtonManager : MonoBehaviour
             sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN, "RoughWeatherStage");
             skyButton.SetTrigger("notPlay");
             uniButton.SetTrigger("notPlay");
+            Sound.PlaySE("click");
+            Sound.StopBGM();
         }
         if (Input.GetAxis("Horizontal2") < -inputNum)
         {
             rageButton.SetBool("select", false);
             skyButton.SetBool("select", true);
             inputed = true;
+            Sound.PlaySE("idou");
 
         }
         else if (Input.GetAxis("Horizontal2") > inputNum)
@@ -90,6 +101,7 @@ public class ButtonManager : MonoBehaviour
             rageButton.SetBool("select", false);
             uniButton.SetBool("select", true);
             inputed = true;
+            Sound.PlaySE("idou");
 
         }
     }
@@ -102,12 +114,15 @@ public class ButtonManager : MonoBehaviour
             sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN, "UniverseStage");
             skyButton.SetTrigger("notPlay");
             rageButton.SetTrigger("notPlay");
+            Sound.PlaySE("click");
+            Sound.StopBGM();
         }
         if (Input.GetAxis("Horizontal2") < -inputNum)
         {
             uniButton.SetBool("select", false);
             rageButton.SetBool("select", true);
             inputed = true;
+            Sound.PlaySE("idou");
 
         }
         else if (Input.GetAxis("Horizontal2") > inputNum)
@@ -115,6 +130,7 @@ public class ButtonManager : MonoBehaviour
             uniButton.SetBool("select", false);
             skyButton.SetBool("select", true);
             inputed = true;
+            Sound.PlaySE("idou");
         }
     }
     

@@ -28,6 +28,7 @@ public class SceneShangeGameOver : MonoBehaviour
         // プレイヤーが死んだとき
         if (player.GetDieFlag())
         {
+            Sound.StopBGM();
             //sceneChange.ChangeSceneFade();
             sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN, "ResultLose");
         }

@@ -99,7 +99,7 @@ public class SpaceShipEventScene : MonoBehaviour
                     endEventTime++;
                 }
 
-                if (endEventTime > 120)
+                if (endEventTime > 240)
                 {
                     Destroy(this);
                 }

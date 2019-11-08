@@ -83,6 +83,11 @@ public class PlayerEventScene : MonoBehaviour
             {
                 playerMove.PlayerFarst();
             }
+
+            if(endEventTime == 320)
+            {
+                Sound.StopBGM();
+            }
         }
     }
 }

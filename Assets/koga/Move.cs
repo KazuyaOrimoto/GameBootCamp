@@ -76,6 +76,8 @@ public class Move : MonoBehaviour
         scene = new SceneChange();
 
         Sound.LoadSE("Hit", "kick-low1");
+        Sound.LoadSE("Spin", "spin");
+        Sound.LoadSE("kira", "kira");
     }
 
     // Update is called once per frame
@@ -188,6 +190,7 @@ public class Move : MonoBehaviour
             rotaleft = false;
             rotaup = false;
             rotadown = false;
+            Sound.PlaySE("Spin");
         }
     }
 
@@ -231,6 +234,7 @@ public class Move : MonoBehaviour
     public void CollisionRing()
     {
         itemspeed = 20;
+        Sound.PlaySE("kira");
         Instantiate(ringparticle, transform.position, transform.rotation);
     }
     

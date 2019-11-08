@@ -483,6 +483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684101521}
   - component: {fileID: 684101522}
+  - component: {fileID: 684101523}
   m_Layer: 0
   m_Name: CheckButton
   m_TagString: Untagged
@@ -514,6 +515,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c85cf00d71a6a54e80578f896b82f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &684101523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684101520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27889960dd5c2f34a873738b8d6f840b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1002864865

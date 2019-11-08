@@ -20,6 +20,10 @@ public class ScenarioScript : MonoBehaviour
 
         image.sprite = list[spriteNum];
         sceneChange = GameObject.Find("SceneManager").GetComponent<SceneChange>();
+        Sound.LoadBGM("Scenario", "sinario");
+        Sound.LoadSE("click", "click");
+        Sound.LoadSE("change", "senariokirikae");
+        Sound.PlayBGM("Scenario");
     }
 
     // Update is called once per frame
@@ -36,10 +40,13 @@ public class ScenarioScript : MonoBehaviour
         {
             if (Input.anyKey)
             {
+                Sound.PlaySE("click");
                 beforeInput = true;
                 spriteNum++;
+                Sound.PlaySE("change");
                 if (spriteNum >= list.Count)
                 {
+                    Sound.StopBGM();
                     //ゲーム開始
                     sceneChange.ChangeSceneFade(SceneChange.FadeName.FADE_IN_DOWN);
                 }
